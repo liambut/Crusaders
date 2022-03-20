@@ -3,7 +3,7 @@ cancelCycle = true;
 function playerHover(img, playerDetails){
 	cancelCycle = false;
 	clearTimers;
-	img.style = "border-radius: 0%; transition: border-radius 0.5s;";
+	img.style = "border-radius: 5%; transition: border-radius 0.5s;";
 	position = playerDetails.querySelector('#position');
 	DOB = playerDetails.querySelector('#DOB');
 	height = playerDetails.querySelector('#height');

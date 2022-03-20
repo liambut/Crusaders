@@ -6,7 +6,7 @@
 	font-family: "Titillium Web", sans-serif;
 }
 body{
-	background-color:#800000;
+	background-color: black;
 }
 .playerCard{
 	background-image: url("playerCardBackground.png");
@@ -16,7 +16,7 @@ body{
 .playerIMG{ 
 	top: 0;
 	width:100%;
-	height:60%;
+	height: auto;
 	position:absolute;
 	overflow:hidden;
 	cursor:pointer;
@@ -33,9 +33,13 @@ body{
 }
 .playerNameContainer{
 	position: absolute;
-	width: 100%;
+	width: 296px;
 	bottom: 0;
 	background-color: black;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #c1c1c1;
+	border-top: none;
 }
 .playerNameContainer h1{
 	font-size: large;
