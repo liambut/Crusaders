@@ -1,9 +1,9 @@
 var playerCardTimeouts = [];
 cancelCycle = true;
 function playerHover(img, playerDetails){
+	clearTimers();
 	cancelCycle = false;
-	clearTimers;
-	img.style = "border-radius: 5%; transition: border-radius 0.5s;";
+	img.style = "border-radius: 0; transition: border-radius 0.5s;";
 	position = playerDetails.querySelector('#position');
 	DOB = playerDetails.querySelector('#DOB');
 	height = playerDetails.querySelector('#height');
@@ -42,8 +42,8 @@ function playerHover(img, playerDetails){
 	playerCardTimeouts.push(setTimeout(() => {stat5Teams.style = "transform: translateX(0); transition: transform ease-out 0.5s; font-size:medium;";}, 500));
 }
 function playerHoverOff(img, playerDetails){
+	clearTimers();
 	cancelCycle = true;
-	clearTimers;
 	img.src = playerDetails.querySelector('#img1').src;
 	img.style = "border-radius: 50%; transition: border-radius 0.5s;";
 	position = playerDetails.querySelector('#position');
@@ -85,6 +85,7 @@ function playerHoverOff(img, playerDetails){
 }
 function cycleImg(img, playerDetails, imgCount){
 	if(cancelCycle == false){
+		img.style="border-radius: 0; filter: blur(0px); transition: filter 0.5s, border-radius 0.5s;";
 		do{
 			imgCount = imgCount + 1;
 			if(imgCount > 5){
@@ -93,7 +94,11 @@ function cycleImg(img, playerDetails, imgCount){
 			imgSRC = "#img" + imgCount.toString(); 
 		}while(isImg(playerDetails.querySelector(imgSRC).src) == false);
 		img.src = playerDetails.querySelector(imgSRC).src;
+		playerCardTimeouts.push(setTimeout(() => {img.style="border-radius:0; filter: blur(1px); transition: filter ease-out 0.5s 2s"}, 500));
 		playerCardTimeouts.push(setTimeout(() => {cycleImg(img, playerDetails, imgCount)}, 3000));
+	}else{
+		clearTimers();
+		img.src = playerDetails.querySelector("#img1").src;
 	}
 }
 function isImg(file){
